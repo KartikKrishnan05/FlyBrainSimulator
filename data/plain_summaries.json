@@ -1,0 +1,102 @@
+{
+ "_meta": {
+  "what": "Plain-language summaries of the recorded research sessions for non-experts (web/board.html, simple view).",
+  "written_by": "Claude Code from the research record runs/<run_id>/record.jsonl; every number was checked against the raw result files listed in 'numbers_from'.",
+  "rule": "Simplify words, never the facts: no claim here that is not in the record; model predictions stay labelled as predictions."
+ },
+ "sessions": {
+  "20261004-010600-which-visual-projection-neurons-ebe8": {
+   "title": "Which eye neurons make a fly walk backwards?",
+   "question": "Which eye neurons make a fly back away (walk backwards), and does it need its \"moonwalker\" neurons to do that?",
+   "knew_before": "Studies on real flies: switching on the moonwalker neurons (MDN) makes a fly walk backwards. Eye neurons called LC16 and LPLC2 were reported to make flies back away.",
+   "tried": "The experts switched on 10 types of eye neurons one by one in the virtual brain. Then they switched on LC16 alone, and LC16 with the moonwalker neurons switched off, and ran the virtual body once.",
+   "found": [
+    "LC16 activated the moonwalker neurons (32 signals per second), as expected from real flies.",
+    "With the moonwalker neurons switched off, that dropped to 0, as it must when they are switched off.",
+    "Surprise: LPLC2 did not activate the moonwalker neurons at all, although a real-fly study reports backing away.",
+    "The virtual body stood still instead of walking backwards."
+   ],
+   "verdict": "partly",
+   "verdict_text": "Partly matches real flies. The LPLC2 result disagrees with a published experiment and is marked as a conflict to investigate.",
+   "next": "Find out whether LPLC2 makes real flies back away through a different route than the moonwalker neurons.",
+   "numbers_from": [
+    "brain_01",
+    "brain_02",
+    "screen_01",
+    "embodied_01"
+   ]
+  },
+  "20261004-093251-which-visual-neurons-trigger-esc-9460": {
+   "title": "Which eye neurons trigger the escape jump?",
+   "question": "Which eye neurons trigger the escape jump, does the virtual fly really take off, and does it need its \"escape neuron\" (the giant fiber)?",
+   "knew_before": "Studies on real flies: eye neurons that detect an approaching object (LPLC2, LC4) connect to the giant fiber, which fires the escape jump.",
+   "tried": "The experts switched on the 10 most promising eye-neuron types strongly (150 pulses per second). Then they flew the virtual fly with LPLC2 switched on, once with and once without the escape neuron.",
+   "found": [
+    "All 10 types made the escape neuron fire. The stimulation was too strong to tell them apart.",
+    "With LPLC2 on, the virtual fly took off and hovered 18 mm high.",
+    "With the escape neuron switched off, it stayed on the ground.",
+    "The movement checker could not confirm from the video whether the fly hovered or climbed, and said so."
+   ],
+   "verdict": "brain",
+   "verdict_text": "Matches real flies inside the brain. The take-off itself is built into our brain-to-body link, so it checks the plumbing rather than discovering something new.",
+   "next": "Repeat with weaker, more realistic stimulation so the neuron types can be told apart. Session 3 did exactly this.",
+   "numbers_from": [
+    "screen_01",
+    "flight_01",
+    "flight_02"
+   ]
+  },
+  "20261004-120628-at-lower-realistic-drive-rates-1-064e": {
+   "title": "With gentler stimulation: which eye neurons still trigger escape?",
+   "question": "With weaker, more realistic stimulation, which eye neurons still make the escape neuron fire, and does the virtual fly still take off?",
+   "knew_before": "From session 2: with strong stimulation all 10 eye-neuron types worked, so that test could not tell them apart.",
+   "tried": "The experts stimulated the same eye neurons at 30, 20 and 10 pulses per second. They tested whether the strongest one, LC17, needs the well-known escape eye neurons. Then they flew the virtual fly with LC17 on, once with and once without the escape neuron.",
+   "found": [
+    "Weaker stimulation separated the types: 5 of 10 still worked at 30, 4 of 4 tested at 20, and only 2 at 10 pulses per second.",
+    "Surprise: LC17, which is not known from real-fly escape studies, was the strongest (escape neuron at 98.5, 92 and 68.5 signals per second).",
+    "LC17 still worked with the known escape eye neurons (LC6, LC4, LPLC2) switched off: 78.0 versus 78.2 signals per second. The two runs got different random input, so the tiny difference means nothing. What counts is that it stayed far above zero.",
+    "The virtual fly only just took off: the escape neuron fired at 76 and about 74 is needed. The movement checker was unsure about the video."
+   ],
+   "verdict": "brain",
+   "verdict_text": "The known escape neurons behave like in real flies, but only inside the brain. LC17 triggering escape is a new prediction of the computer model and has not been tested in real flies.",
+   "next": "The experts suggest testing LC17 in a real-fly experiment, and re-recording the take-off with a fixed camera because the checker was unsure.",
+   "numbers_from": [
+    "screen_01",
+    "screen_02",
+    "screen_03",
+    "brain_06",
+    "brain_07",
+    "flight_01",
+    "flight_02"
+   ]
+  },
+  "20261004-133848-at-realistic-drive-rates-10-30-h-8ed6": {
+   "title": "Escape or back away: does the brain copy pick the right command?",
+   "question": "Real flies can react to a looming object by jumping away or by backing away. With gentle, realistic nudges, which eye neurons switch on the backing-away (moonwalker) neurons, and does the brain copy keep escape and backing away apart, switching on the right command and leaving the other off?",
+   "knew_before": "From experiments 1 to 3: the LPLC2 eye neurons switch on the escape neuron but never the backing-away neurons, the only clear disagreement with real flies. LC16 switched the backing-away neurons on, but only with strong stimulation.",
+   "tried": "The experts nudged 8 eye-neuron types at 20 pulses per second. They nudged LC16 and LPLC2 at 10, 20 and 30 pulses per second, then more strongly, and switched off the escape or backing-away neurons in matched pairs. This experiment used the brain only, no body.",
+   "found": [
+    "With gentle nudges (20 pulses per second), none of the 8 eye-neuron types switched on the backing-away neurons (the highest reached 3.75 signals per second).",
+    "LPLC2 switched on only the escape neuron, more with stronger nudges (35, 68.5 and 80 signals per second at 10, 20 and 30 pulses). The backing-away neurons stayed at 0, even with the escape neuron switched off, so LPLC2 has no hidden route to them in the brain copy.",
+    "LC16 needs a strong nudge: the backing-away neurons stayed off up to 75 pulses per second (0.58 signals) and only switched on at 150 (32 signals, experiment 1).",
+    "LC16 also switched on steering neurons on its own (10.7 signals per second at 75 pulses), separate from backing away."
+   ],
+   "verdict": "partly",
+   "verdict_text": "The brain copy keeps escape and backing away apart: each eye-neuron type switches on its own command and not the other. Escape matches real flies even with gentle nudges. Backing away needs much stronger stimulation than escape, and LPLC2 never triggers it, which disagrees with a real-fly study.",
+   "next": "The experts suggest checking whether LPLC2 reaches the backing-away neurons through the nerve cord (not in our brain-only model), and whether brain chemicals that the model leaves out make the LC16 route easier to switch on.",
+   "review_note": "The AI record keeper's final report mislabels two things: it calls brain_07 and brain_08 no-stimulus controls (they are LC16 with the backing-away neurons off, and LPLC2 with the escape neuron off), and it attaches some reference ids to the wrong experiments (for example gt08, which is LPLC2 → escape). Its numbers are correct. The independent check verifies numbers and sources, not these labels. The planner also spent slightly over budget (about 10.4 of 10 units).",
+   "numbers_from": [
+    "screen_01",
+    "brain_01",
+    "brain_02",
+    "brain_03",
+    "brain_04",
+    "brain_05",
+    "brain_06",
+    "brain_09",
+    "brain_11",
+    "S1/brain_01"
+   ]
+  }
+ }
+}
