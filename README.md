@@ -2,7 +2,7 @@
 
 **An agent-driven research workflow that connects a whole-brain model of the fruit fly to controlled experiments and a physically simulated fly body.**
 
-Built at the **Global AI Hackathon Munich** (October 3–4, 2026) for the Databricks challenge *Agentic Scientific Discovery*. This repository is a copy of the team repository [JonasMayerDev/FlyBrainLab](https://github.com/JonasMayerDev/FlyBrainLab).
+🥉 **3rd place, Munich hub** — built by a team of four at the **Hack-Nation Global AI Hackathon** (October 3–4, 2026) for the Databricks challenge *Agentic Scientific Discovery*. This repository is a copy of the team repository [JonasMayerDev/FlyBrainLab](https://github.com/JonasMayerDev/FlyBrainLab).
 
 **[Live interactive demo](https://valleebo.github.io/FlyBrainLab/)** — replays of real pre-computed runs in a 3D viewer.
 
