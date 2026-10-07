@@ -1,5 +1,37 @@
 # FlyBrainLab
 
+**An agent-driven research workflow that connects a whole-brain model of the fruit fly to controlled experiments and a physically simulated fly body.**
+
+Built at the **Global AI Hackathon Munich** (October 3–4, 2026) for the Databricks challenge *Agentic Scientific Discovery*. This repository is a copy of the team repository [JonasMayerDev/FlyBrainLab](https://github.com/JonasMayerDev/FlyBrainLab).
+
+**[Live interactive demo](https://valleebo.github.io/FlyBrainLab/)** — replays of real pre-computed runs in a 3D viewer.
+
+### What it does
+
+- Simulates the full **FlyWire v783 connectome** (138,639 neurons, ~15 million connections) with the leaky integrate-and-fire model from [Shiu et al. 2024](https://pmc.ncbi.nlm.nih.gov/articles/PMC11446845/), using Brian2
+- Runs **pre-registered experiments** on the DNg02 descending neurons, which control wing amplitude in flight: sham vs. stimulation vs. disconnection, across several seeds
+- Couples the neural output to a **physics-simulated fly** ([flybody](https://github.com/TuragaLab/flybody) / MuJoCo, plus a NeuroMechFly walking body)
+- Uses an **LLM agent team** ([Omnigent](https://github.com/omnigent-ai/omnigent)) to plan experiments, check results against primary literature, and choose the next experiment based on the outcome — with every step logged and verified
+- A **Three.js viewer** and Streamlit dashboard for replaying runs, plus an expert-board page that explains results to non-experts
+
+### Honest limits
+
+The motor adapter between neurons and body is an explicit assumption, not a biological calibration. The body is stabilised by an existing RL policy in the tested 200 ms window; biologically validated flight driven purely by the connectome is **not** demonstrated. See [docs/RESULTS.md](docs/RESULTS.md).
+
+### Quick start
+
+```bash
+uv venv --python 3.12 .venv
+uv pip install --python .venv/bin/python -r requirements.lock
+.venv/bin/python scripts/check_setup.py
+python3 -m http.server 8777 --directory web     # viewer at http://localhost:8777
+```
+
+The detailed project documentation below is in German.
+
+---
+
+
 > **Branch `embodied-fly-lab`: merged team version.** This branch adds Maximilian Kahl's *Embodied Fly Lab* on top of FlyBrainLab `main`
 > (nothing from `main` was removed or changed except appended lines in `.gitignore` and `.env.example`):
 > numpy re-implementation of the Shiu et al. 2024 whole-brain model (`flylab/brain.py`), frozen descending-neuron bridge (`flylab/bridge.py`),
